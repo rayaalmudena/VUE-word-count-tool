@@ -1,9 +1,17 @@
-let button = document.getElementById('btn');
+const app = Vue.createApp({
+    data() {
+        return {
+            word: ''
+        }
+    },
+    computed : {
+        getStyle() {
+            if (this.word.length % 2 == 0) {
+                return 'red'
+            }
+            return 'green'
+        }
+    }
+})
 
-button.addEventListener('click', function(){
-    let word = document.getElementById('str').value;
-    let count = word.length;
-    let outputDiv = document.getElementById('output');
-
-    outputDiv.innerHTML = `<h1>${count}</h1>`
-});
+app.mount('#app')
